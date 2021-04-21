@@ -15,8 +15,8 @@ public class ScoreDisplay extends PApplet
 	private float border;
 
 	//String score = "DEFGABcd";
-	String score = "D2E2F2G2A2B2c2d2";
-	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	//String score = "D2E2F2G2A2B2c2d2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
 	public void settings()
 	{
@@ -83,6 +83,31 @@ public class ScoreDisplay extends PApplet
 
 	void printScores()
 	{
-		System.out.println(notes);
+		char[] c = score.toCharArray();
+		for(int i = 0; i < c.length;i++)
+		{
+			if(score.charAt(i) == '2' && (score.charAt(i-1) == 'D' || score.charAt(i-1) == 'E' || score.charAt(i-1) == 'F' || score.charAt(i-1) == 'A' || score.charAt(i-1) == 'B' 
+			|| score.charAt(i-1) == 'c' || score.charAt(i-1) == 'd'))
+			{
+				
+			}
+			else
+			{
+				if(score.charAt(i+1) == '2')
+				{
+					System.out.print(score.substring(i,i+1));
+					System.out.print("\t2");
+					System.out.print("\tCrochet");
+					System.out.println();
+				}
+				else
+				{
+				System.out.print(score.substring(i,i+1));
+				System.out.print("\t1");
+				System.out.print("\tQuaver");
+				System.out.println();
+				}
+			}
+		}
 	}
 }
