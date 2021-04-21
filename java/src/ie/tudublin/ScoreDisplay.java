@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
+import java.lang.String;
 
 
 import processing.core.PApplet;
@@ -34,6 +35,7 @@ public class ScoreDisplay extends PApplet
 		colorMode(RGB);
 		leftBorder = width * 0.2f;
 		border = width * 0.05f;
+		loadScore();
 
 	}
 
@@ -73,6 +75,9 @@ public class ScoreDisplay extends PApplet
 
 	void loadScore()
 	{
-		
+		for(int i = 0;i<notes.size();i++)
+		{
+			notes.add(score.substring(i,i+1));
+		}
 	}
 }
