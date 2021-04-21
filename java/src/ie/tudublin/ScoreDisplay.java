@@ -7,6 +7,9 @@ import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
 {
+
+	ArrayList<String> notes = new ArrayList<String>();
+
 	private float leftBorder;
 	private float border;
 
@@ -68,10 +71,8 @@ public class ScoreDisplay extends PApplet
 		}
 	}
 
-	private void Note()
+	void loadScore()
 	{
-		char n;
-		int d;
-
+		
 	}
 }
