@@ -37,13 +37,19 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
-		drawNotes();
+		drawScore();
+		drawLines();
 	}
 
 	void drawNotes()
 	{
+
+	}
+
+	void drawScore()
+	{
 		stroke(0);
-		strokeWeight(5);
+		strokeWeight(3);
 		fill(0);
 		textAlign(CENTER,CENTER);
 		for(int i = 0;i < score.length();i++)
@@ -53,7 +59,14 @@ public class ScoreDisplay extends PApplet
 		}
 	}
 
-	void drawLines();
+	void drawLines()
+	{
+		for(int i = 0;i < 5;i++)
+		{
+			float y = map(i,0,5,height/3,height);
+			line(leftBorder*0.9f,y,width,y);
+		}
+	}
 
 	private void Note()
 	{
