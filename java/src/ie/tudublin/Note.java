@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-public class Note {
+public class Note{
     private char n;
     private int d;
 
