@@ -17,13 +17,17 @@ public class ScoreDisplay extends PApplet
 	//String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
 	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	char[] charac = new char[20];
+	int[] integ = new int[20];
+	char c;
+	int in;
 	
 	public void settings()
 	{
 		size(1000, 500);
 
 		// How to convert a character to a number
-		char c = '7'; // c holds the character 7 (55)
+		c = '7'; // c holds the character 7 (55)
 		int i = c - '0'; // i holds the number 7 (55 - 48) 
 		println(i);
 		
@@ -48,7 +52,7 @@ public class ScoreDisplay extends PApplet
 
 	void drawNotes()
 	{
-
+		
 	}
 
 	void drawScore()
@@ -57,10 +61,10 @@ public class ScoreDisplay extends PApplet
 		strokeWeight(3);
 		fill(0);
 		textAlign(CENTER,CENTER);
-		for(int i = 0;i < score.length();i++)
+		for(int i = 0;i < notes.size();i++)
 		{
-			float x = map(i,0,score.length(),leftBorder,width-border);
-			text(score.substring(i,i+1),x,border);
+			float x = map(i,0,notes.size(),leftBorder,width-border);
+			text(notes.get(i),x,border);
 		}
 	}
 
@@ -75,16 +79,34 @@ public class ScoreDisplay extends PApplet
 
 	void loadScore()
 	{
-		for(int i = 0;i<score.length();i++)
+		for(int i = 0;i < score.length();i++)
 		{
-			notes.add(score.substring(i,i+1));
+			if(score.charAt(i) == '2')
+			{
+				in = score.charAt(i);
+				in = in - '0';
+				for(int j =0;j < integ.length;j++)
+				{
+					integ[j] = in;
+				}
+			}
+			else
+			{
+				notes.add(score.substring(i,i+1));
+				c = score.charAt(i);
+				for(int k = 0;k < charac.length;k++)
+				{
+					charac[k] = c;
+				}
+				
+				
+			}
 		}
 	}
 
 	void printScores()
 	{
-		char[] c = score.toCharArray();
-		for(int i = 0; i < c.length;i++)
+		for(int i = 0; i < score.length() -1;i++)
 		{
 			if(score.charAt(i) == '2' && (score.charAt(i-1) == 'D' || score.charAt(i-1) == 'E' || score.charAt(i-1) == 'F' || score.charAt(i-1) == 'A' || score.charAt(i-1) == 'B' 
 			|| score.charAt(i-1) == 'c' || score.charAt(i-1) == 'd'))
